@@ -1,9 +1,13 @@
 import { useState } from 'react';
 
-function Square({value, onSquareClick}) {
+function Square({value, onSquareClick, isWinner}) {
+  let cssClass = "square"
+  if (isWinner) {
+    cssClass = "winner_square"
+  }
   return (
     <button
-      className="square"
+      className={cssClass}
       onClick={onSquareClick}    >
       {value}
     </button>
@@ -38,9 +42,14 @@ function Board({xIsNext, squares, onPlay}) {
     let board = [];
     let row = [];
     let row_idx = 0;
+    let isWinnerSquare = false;
     for ( let i = 0; i < squares.length; i++ ) {
+      // Check if square belongs to the winner square
+      if (winner) {
+        isWinnerSquare = winner[1].includes(i);
+      }
       row.push(
-        <Square key={i} value={squares[i]} onSquareClick={() => handleClick(i)}/>
+        <Square key={i} value={squares[i]} onSquareClick={() => handleClick(i)} isWinner={isWinnerSquare} />
       );
       if ( (i+1) % 3 === 0 ) {
         board.push(
