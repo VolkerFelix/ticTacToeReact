@@ -71,7 +71,7 @@ body {
   width: 34px;
 }
 
-.winner_square {
+.winner-square {
   background: #01fe66;
   border: 1px solid #999;
   float: left;
@@ -102,4 +102,16 @@ body {
 
 .game-info {
   margin-left: 20px;
+}
+
+.player-info {
+  inline-size: 500px;
+  font-family: sans-serif;
+  border: 1px solid #999;
+  margin-bottom: 10px;
+}
+
+.game-status {
+  font-family: sans-serif;
+  margin-bottom: 10px;
 }
